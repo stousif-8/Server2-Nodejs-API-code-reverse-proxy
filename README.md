@@ -39,3 +39,17 @@ Using pm2 (recommended for better management):
 npm install -g pm2
 pm2 start index.js --name backend-api
 pm2 save
+
+
+if suppose your backend public ip sometimes wont works after configuring it from frontend so that's beacuse backend port is running with PID 
+sudo lsof -i :3000
+we need to delete that ID 
+[root@ip-172-31-20-254 api-backend]# sudo lsof -i :3000
+COMMAND   PID USER   FD   TYPE DEVICE SIZE/OFF NODE NAME
+node    31097 root   19u  IPv6  55426      0t0  TCP *:hbci (LISTEN)
+
+sudo kill -9 <PID>
+delete that ID and run
+npm start 
+that's all 
+copy the public IP and browse it :3000
